@@ -4,5 +4,15 @@
   "description": "urncjp settings.",
   "type": "object",
   "properties": {},
-  "additionalProperties": false
+  "additionalProperties": false,
+  "jupyter.lab.toolbars": {
+    "Notebook": [
+      {
+        "icon": "ui-components:file-upload",
+        "label": "Submit Exam",
+        "name": "urncjp-submit",
+        "command": "urncjp:submit"
+      }
+    ]
+  }
 }
