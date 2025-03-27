@@ -1,13 +1,16 @@
-name: Build
+name: Build and Publish
 
 on:
   push:
-    branches: main
+    tags:
+      - "v*"
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    environment:
+      name: pypi
+      url: https://pypi.org/p/urncjp
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -16,7 +19,9 @@ jobs:
       uses: jupyterlab/maintainer-tools/.github/actions/base-setup@v1
 
     - name: Install dependencies
-      run: python -m pip install -U "jupyterlab>=4.0.0,<5"
+      run: |
+        npm install
+        python -m pip install -U "jupyterlab>=4.0.0,<5"
 
     - name: Lint the extension
       run: |
@@ -42,10 +47,10 @@ jobs:
         pip install build
         python -m build
         pip uninstall -y "urncjp" jupyterlab
+    - name: Publish package distributions to PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+    - name: Publish the extension to npm
+      run: |
+        set -eux
+        npm publish
 
-    - name: Upload extension packages
-      uses: actions/upload-artifact@v4
-      with:
-        name: extension-artifacts
-        path: dist/urncjp*
-        if-no-files-found: error
