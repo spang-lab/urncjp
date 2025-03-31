@@ -1,6 +1,6 @@
-import { URLExt } from '@jupyterlab/coreutils';
+import { URLExt } from "@jupyterlab/coreutils";
 
-import { ServerConnection } from '@jupyterlab/services';
+import { ServerConnection } from "@jupyterlab/services";
 
 type UserInfo = {
   name: string;
@@ -9,26 +9,26 @@ type UserInfo = {
 };
 
 export async function userInfo(): Promise<UserInfo> {
-  return requestAPI<UserInfo>('user');
+  return requestAPI<UserInfo>("user");
 }
 
 export async function submitNotebook(json: string): Promise<any> {
-  return requestAPI<any>('submit', {
+  return requestAPI<any>("submit", {
     body: json,
-    method: 'POST'
+    method: "POST",
   });
 }
 
 async function requestAPI<T>(
-  endPoint = '',
-  init: RequestInit = {}
+  endPoint = "",
+  init: RequestInit = {},
 ): Promise<T> {
   // Make request to Jupyter API
   const settings = ServerConnection.makeSettings();
   const requestUrl = URLExt.join(
     settings.baseUrl,
-    'jupyter-exam', // API Namespace
-    endPoint
+    "jupyter-exam", // API Namespace
+    endPoint,
   );
 
   let response: Response;
@@ -44,7 +44,7 @@ async function requestAPI<T>(
     try {
       data = JSON.parse(data);
     } catch (error) {
-      console.log('Not a JSON response body.', response);
+      console.log("Not a JSON response body.", response, error);
     }
   }
 

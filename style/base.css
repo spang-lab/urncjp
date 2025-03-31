@@ -16,7 +16,7 @@
   border-radius: 5px;
 }
 
-[data-command='jupyter-exam:submit'] {
+[data-command='urncjp:submit'] {
   background-color: #28a745; /* Green background */
   color: white;
   padding: 2px 8px;
@@ -25,9 +25,15 @@
   border-radius: 5px;
   cursor: pointer;
 }
-[data-command='jupyter-exam:submit']:hover {
+.submit-disabled {
+  opacity: 0.5;
+}
+[data-command='urncjp:submit']:hover {
   background-color: #218838; /* Darker green on hover */
 }
-[data-command='jupyter-exam:submit'] > .jp-ToolbarButtonComponent-label {
+
+
+
+[data-command='urncjp:submit'] > .jp-ToolbarButtonComponent-label {
   color: white;
 }

@@ -52,7 +52,8 @@
     "@jupyterlab/coreutils": "^6.3.6",
     "@jupyterlab/notebook": "^4.3.6",
     "@jupyterlab/services": "^7.3.6",
-    "@jupyterlab/settingregistry": "^4.3.6"
+    "@jupyterlab/settingregistry": "^4.3.6",
+    "@sindresorhus/fnv1a": "^3.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.23.0",
