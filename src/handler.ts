@@ -27,7 +27,7 @@ async function requestAPI<T>(
   const settings = ServerConnection.makeSettings();
   const requestUrl = URLExt.join(
     settings.baseUrl,
-    "jupyter-exam", // API Namespace
+    "urncjp", // API Namespace
     endPoint,
   );
 

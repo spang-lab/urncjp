@@ -66,7 +66,7 @@ class SubmitHandler(APIHandler):
 
 def setup_handlers(web_app):
     host_pattern = ".*$"
-    base_url = url_path_join(web_app.settings["base_url"], "jupyter-exam")
+    base_url = url_path_join(web_app.settings["base_url"], "urncjp")
 
     submit_url = url_path_join(base_url, "submit")
     user_url = url_path_join(base_url, "user")
